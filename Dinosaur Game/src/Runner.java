@@ -8,8 +8,8 @@ public class Runner
 				askToPlayGame();
 				if(num==1)
 					{
-				chooseLandscape();
 				selectDinosaur();
+				chooseLandscape();
 				selectDinosaurToBattle();
 				battleOpponent();
 				tellWinner();
@@ -33,15 +33,17 @@ public class Runner
 				
 			}
 
-		private static void chooseLandscape()
-			{
-				System.out.println("");
-				
-			}
-
 		private static void selectDinosaur()
 			{
-				// TODO Auto-generated method stub
+				Scanner userInput = new Scanner(System.in);
+				System.out.println("What dinosaur would you like to be?");
+				
+			}
+		private static void chooseLandscape()
+			{
+				System.out.println("It's 200 million years ago");
+				System.out.println("There is a clean, fresh breeze that smells of an unimaginable lack of pollution.");
+				System.out.println("What landscape do you venture to?");
 				
 			}
 
