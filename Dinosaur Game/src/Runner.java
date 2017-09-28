@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Runner
 	{
 		static int num;
+		static int dinoChoice;
 
 		public static void main(String[] args)
 			{
@@ -45,6 +46,7 @@ public class Runner
 				for (Dinosaur d: DinosaurData.dinoArray)
 					{
 				System.out.println(d.getType());
+				dinoChoice = userInput.nextInt();
 					}
 				
 			}
