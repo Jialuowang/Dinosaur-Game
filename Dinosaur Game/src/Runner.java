@@ -123,14 +123,10 @@ public class Runner
 			System.out.println("You are staring down your opponent, plotting your next move");
 			System.out.println("You attack with your deadly " +  attackType);
 			
-			while(health > 0)
-				{
 					if (attackDamage > opponentAttackDamage)
 						{
-							opponentHealth = opponentHealth - attackDamage + 2;
-							System.out.println("You were stronger than your enemy! ");
+							System.out.println("You were stronger than your enemy! Y");
 						}
-				}
 		}
 
 		private static void tellWinner()
