@@ -65,12 +65,12 @@ public class Runner
 							System.out.println("You have chosen the " + DinosaurData.dinoArray.get(userDinoChoice-1).getType());
 							attackType = DinosaurData.dinoArray.get(userDinoChoice-1).getAttackType();
 							attackDamage = DinosaurData.dinoArray.get(userDinoChoice-1).getAttackDamage();
-							System.out.println("	It has an attack damage of " + attackDamage);
+							System.out.println("\n	It has an attack damage of " + attackDamage);
 							defenseAbilities = DinosaurData.dinoArray.get(userDinoChoice-1).getDefenseAbilities();
-							System.out.println("\n	A defense ability of  " + defenseAbilities);
+							System.out.println("	A defense ability of  " + defenseAbilities);
 							speed = DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed();
-							System.out.println("\n	A speed of " + speed);
-							System.out.println("\n	And attacks with a " + attackType);
+							System.out.println("	A speed of " + speed);
+							System.out.println("	And attacks with a " + attackType);
 						
 							DinosaurData.dinoArray.remove(userDinoChoice-1);
 						
@@ -94,7 +94,7 @@ public class Runner
 					{
 						System.out.println("You have chosen to run");
 						System.out.println();
-						if (DinosaurData.dinoArray.get(opponentDino-1).getSpeed() > DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed())
+						if (DinosaurData.dinoArray.get(opponentDino-1).getSpeed() >= DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed())
 						{
 							System.out.println("You tested your luck blindly, and your opponent was faster than you. ");
 							System.out.println("You will now have to fight.");
@@ -122,11 +122,16 @@ public class Runner
 			System.out.println();
 			System.out.println("You are staring down your opponent, plotting your next move");
 			System.out.println("You attack with your deadly " +  attackType);
+			System.out.println();
 			
 					if (attackDamage > opponentAttackDamage)
 						{
-							System.out.println("You were stronger than your enemy! Y");
+							System.out.println("You were stronger than your enemy! You walk victoriously into the distance");
 						}
+					else 
+					{
+						System.out.println("The world is a tough place and some are stronger than others...\nIt was a good run");
+					}
 		}
 
 		private static void tellWinner()
