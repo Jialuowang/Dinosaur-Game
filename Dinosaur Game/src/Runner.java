@@ -11,11 +11,16 @@ public class Runner
 		static int speed;
 		static int health;
 		static int opponentHealth;
+		static ArrayList<Dinosaur>dinoArrayOpponent = new ArrayList<Dinosaur>();
 
 		public static void main(String[] args)
 			{
-				DinosaurData.fillArray();
 				
+				DinosaurData.fillArray();
+				for(int k = 0; k < 7; k++)
+					{
+						dinoArrayOpponent.add(DinosaurData.dinoArray.get(k));
+					}
 				askToPlayGame();
 				if(num==1)
 					{
@@ -46,14 +51,23 @@ public class Runner
 				
 			}
 		private static void printList()
-		{
-			int counter = 1;
-			for (Dinosaur d: DinosaurData.dinoArray)
-				{
-					System.out.println(counter + ")	" + d.getType());
-					counter++;
-				}
-		}
+			{
+				int counter = 1;
+				for (Dinosaur d: DinosaurData.dinoArray)
+					{
+						System.out.println(counter + ")	" + d.getType());
+						counter++;
+					}
+			}
+		private static void printListOpponent()
+			{
+				int counter = 1;
+				for (Dinosaur d: dinoArrayOpponent)
+					{
+						System.out.println(counter + ")	" + d.getType());
+						counter++;
+					}
+			}
 
 		private static void selectDinosaur()
 			{
@@ -71,8 +85,7 @@ public class Runner
 							speed = DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed();
 							System.out.println("	A speed of " + speed);
 							System.out.println("	And attacks with a " + attackType);
-						
-							DinosaurData.dinoArray.remove(userDinoChoice-1);
+							dinoArrayOpponent.remove(userDinoChoice-1);
 						
 			}
 				
@@ -81,7 +94,7 @@ public class Runner
 				Scanner userInput = new Scanner(System.in);
 				System.out.println();
 				System.out.println("What dinosaur would you like to battle?");
-				printList();
+				printListOpponent();
 				opponentDino = userInput.nextInt();
 			}
 
@@ -94,12 +107,12 @@ public class Runner
 					{
 						System.out.println("You have chosen to run");
 						System.out.println();
-						if (DinosaurData.dinoArray.get(opponentDino-1).getSpeed() >= DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed())
-						{
-							System.out.println("You tested your luck blindly, and your opponent was faster than you. ");
-							System.out.println("You will now have to fight.");
-							fightOpponent();
-						}
+						if (dinoArrayOpponent.get(opponentDino-1).getSpeed() >= DinosaurData.dinoArray.get(userDinoChoice-1).getSpeed())
+							{
+								System.out.println("You tested your luck blindly, and your opponent was faster than you. ");
+								System.out.println("You will now have to fight.");
+								fightOpponent();
+							}
 						else
 							{
 								System.out.println("Wooo close one! \nYou got lucky this time. \nYou outran your opponent, but who knows what will happen next time");
@@ -116,8 +129,8 @@ public class Runner
 		private static void fightOpponent()
 		{
 			health = DinosaurData.dinoArray.get(userDinoChoice-1).getHealth();
-			opponentHealth = DinosaurData.dinoArray.get(opponentDino-1).getHealth();
-			int opponentAttackDamage = DinosaurData.dinoArray.get(opponentDino).getAttackDamage();
+			opponentHealth = dinoArrayOpponent.get(opponentDino-1).getHealth();
+			int opponentAttackDamage = dinoArrayOpponent.get(opponentDino-1).getAttackDamage();
 			
 			System.out.println();
 			System.out.println("You are staring down your opponent, plotting your next move");

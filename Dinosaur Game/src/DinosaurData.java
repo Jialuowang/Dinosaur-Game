@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DinosaurData
 	{
-		public static ArrayList<Dinosaur>dinoArray = new ArrayList<Dinosaur>();
+		static ArrayList<Dinosaur>dinoArray = new ArrayList<Dinosaur>();
 		
 		public static void fillArray()
 		{
